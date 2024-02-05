@@ -20,14 +20,14 @@ export const getOneMovie = catchError(async (req, res) => {
 })
 
 export const createMovie = catchError(async (req, res) => {
-    const { name, image, synopsis, releaseYear, genres, directors, actors } = req.body;
+    /* const { name, image, synopsis, releaseYear, genres, directors, actors } = req.body;
 
     const newMovie = {
         name,
         image,
         synopsis,
         releaseYear
-    }
+    } */
 
     //almacenando los datos genres, directors y actors
     /* if (genres) {

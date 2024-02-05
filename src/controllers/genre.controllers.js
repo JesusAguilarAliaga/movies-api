@@ -18,13 +18,13 @@ export const getOneGenre = catchError(async (req, res) => {
 })
 
 export const createGenre = catchError(async (req, res) => {
-    const { name } = req.body;
+    /* const { name } = req.body;
 
     const newBody = {
         name
-    }
+    } */
 
-    const result = await Genre.create(newBody)
+    const result = await Genre.create(req.body)
     
     return res.status(201).json({
         message: "Genre created",
