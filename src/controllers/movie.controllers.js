@@ -22,7 +22,7 @@ export const getOneMovie = catchError(async (req, res) => {
 export const createMovie = catchError(async (req, res) => {
     const { name, image, synopsis, releaseYear, genres, directors, actors } = req.body;
 
-    const newBody = {
+    const newMovie = {
         name,
         image,
         synopsis,
@@ -30,22 +30,22 @@ export const createMovie = catchError(async (req, res) => {
     }
 
     //almacenando los datos genres, directors y actors
-    if (genres) {
-        const movieGenres = await newMovie.setGenres(genres);
+    /* if (genres) {
+        const movieGenres = await Movie.setGenres(genres);
         newMovie.Genres = movieGenres;
     }
 
     if (directors) {
-        const movieDirectors = await newMovie.setDirectors(directors);
+        const movieDirectors = await Movie.setDirectors(directors);
         newMovie.Directors = movieDirectors;
     }
 
     if (actors) {
         const movieActors = await newMovie.setActors(actors);
         newMovie.Actors = movieActors;
-    }
+    } */
 
-    const result = await Movie.create(newBody);
+    const result = await Movie.create(req.body);
 
     return res.status(201).json({
         message: "Movie created",
