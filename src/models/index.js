@@ -6,13 +6,13 @@ import Movie from "./Movie.js";
 
 
 // table pivot: movie_genre
-Movie.belongsToMany(Genre, { through: "movie_genre"})
-Genre.belongsToMany(Movie, { through: "movie_genre"})
+Movie.belongsToMany(Genre, { through: "movieGenre"})
+Genre.belongsToMany(Movie, { through: "movieGenre"})
 
 // table pivot: movie_director
-Movie.belongsToMany(Director, { through: "movie_director"})
-Director.belongsToMany(Movie, { through: "movie_director"})
+Movie.belongsToMany(Director, { through: "movieDirector"})
+Director.belongsToMany(Movie, { through: "movieDirector"})
 
 // table pivot: movie_actor
-Movie.belongsToMany(Actor, { through: "movie_actor"})
-Actor.belongsToMany(Movie, { through: "movie_actor"})
+Movie.belongsToMany(Actor, { through: "movieActor"})
+Actor.belongsToMany(Movie, { through: "movieActor"})

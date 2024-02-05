@@ -17,7 +17,7 @@ export const getOneActor = catchError(async (req, res) => {
 })
 
 export const createActor = catchError(async (req, res) => {
-    const { firstName, lastName, nationality, image, birthday } = req.body;
+    /* const { firstName, lastName, nationality, image, birthday } = req.body;
 
     const newBody = {
         firstName,        
@@ -25,9 +25,9 @@ export const createActor = catchError(async (req, res) => {
         nationality,
         image,
         birthday
-    }
+    } */
 
-    const result = await Actor.create(newBody);
+    const result = await Actor.create(req.body);
 
     return res.status(201).json({
         message: "Actor created",

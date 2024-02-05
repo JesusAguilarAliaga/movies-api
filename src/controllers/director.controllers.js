@@ -17,7 +17,7 @@ export const getOneDirector = catchError(async (req, res) => {
 })
 
 export const createDirector = catchError(async (req, res) => {
-    const { firstName, lastName, nationality, image, birthday } = req.body;
+    /* const { firstName, lastName, nationality, image, birthday } = req.body;
 
     const newBody = {
         firstName,        
@@ -25,9 +25,9 @@ export const createDirector = catchError(async (req, res) => {
         nationality,
         image,
         birthday
-    }
+    } */
 
-    const result = await Director.create(newBody);
+    const result = await Director.create(req.body);
 
     return res.status(201).json({
         message: "Director created",
