@@ -26,10 +26,7 @@ export const createGenre = catchError(async (req, res) => {
 
     const result = await Genre.create(req.body)
     
-    return res.status(201).json({
-        message: "Genre created",
-        data: result
-    })
+    return res.status(201).json(result)
 })
 
 export const deleteGenre = catchError(async (req, res) => {
@@ -56,8 +53,5 @@ export const updateGenre = catchError(async (req, res) => {
         }
     )
 
-    return res.json({
-        message: "Genre updated",
-        data: result[1][0]
-    })
+    return res.json(result[1][0])
 })

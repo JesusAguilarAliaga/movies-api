@@ -29,10 +29,7 @@ export const createActor = catchError(async (req, res) => {
 
     const result = await Actor.create(req.body);
 
-    return res.status(201).json({
-        message: "Actor created",
-        data: result
-    });
+    return res.status(201).json(result);
 })
 
 export const deleteActor = catchError( async(req, res) => {
@@ -61,8 +58,5 @@ export const updateActor = catchError(async (req, res) => {
         }
     )
 
-    return res.json({
-        message: "Actor updated",
-        data: result[1][0]
-    })
+    return res.json(result[1][0])
 })

@@ -47,10 +47,7 @@ export const createMovie = catchError(async (req, res) => {
 
     const result = await Movie.create(req.body);
 
-    return res.status(201).json({
-        message: "Movie created",
-        data: result
-    });
+    return res.status(201).json(result);
 })
 
 export const deleteMovie = catchError( async(req, res) => {
@@ -79,10 +76,7 @@ export const updateMovie = catchError(async (req, res) => {
         }
     )
 
-    return res.json({
-        message: "Movie updated",
-        data: result[1][0]
-    })
+    return res.json(result[1][0])
 })
 
 export const setGenre = catchError(async (req, res) => {
@@ -98,10 +92,7 @@ export const setGenre = catchError(async (req, res) => {
 
     const allGenres = await movie.getGenres()
 
-    return res.json({
-        message: "Genre added",
-        data: allGenres
-    })
+    return res.json(allGenres)
 })
 
 export const setDirector = catchError(async (req, res) => {
@@ -114,10 +105,7 @@ export const setDirector = catchError(async (req, res) => {
 
     const allDirectors = await movie.getDirectors()
 
-    return res.json({
-        message: "Director added",
-        data: allDirectors
-    })
+    return res.json(allDirectors)
 })
 
 export const setActor = catchError(async (req, res) => {
@@ -130,8 +118,5 @@ export const setActor = catchError(async (req, res) => {
 
     const allActors = await movie.getActors();
 
-    return res.json({
-        message: "Actor added",
-        data: allActors
-    })
+    return res.json(allActors)
 })

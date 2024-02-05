@@ -29,10 +29,7 @@ export const createDirector = catchError(async (req, res) => {
 
     const result = await Director.create(req.body);
 
-    return res.status(201).json({
-        message: "Director created",
-        data: result
-    });
+    return res.status(201).json(result);
 })
 
 export const deleteDirector = catchError( async(req, res) => {
@@ -61,8 +58,5 @@ export const updateDirector = catchError(async (req, res) => {
         }
     )
 
-    return res.json({
-        message: "Director updated",
-        data: result[1][0]
-    })
+    return res.json(result[1][0])
 })
