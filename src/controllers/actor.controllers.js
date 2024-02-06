@@ -17,16 +17,6 @@ export const getOneActor = catchError(async (req, res) => {
 })
 
 export const createActor = catchError(async (req, res) => {
-    /* const { firstName, lastName, nationality, image, birthday } = req.body;
-
-    const newBody = {
-        firstName,        
-        lastName,
-        nationality,
-        image,
-        birthday
-    } */
-
     const result = await Actor.create(req.body);
 
     return res.status(201).json(result);
@@ -59,4 +49,11 @@ export const updateActor = catchError(async (req, res) => {
     )
 
     return res.json(result[1][0])
+})
+
+//only to create a lot of actors
+export const bulkCreatedActors = catchError(async (req, res) => {
+    const result = await Actor.bulkCreate(req.body)
+
+    return res.status(201).json(result)
 })

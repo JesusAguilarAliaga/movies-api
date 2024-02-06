@@ -17,16 +17,6 @@ export const getOneDirector = catchError(async (req, res) => {
 })
 
 export const createDirector = catchError(async (req, res) => {
-    /* const { firstName, lastName, nationality, image, birthday } = req.body;
-
-    const newBody = {
-        firstName,        
-        lastName,
-        nationality,
-        image,
-        birthday
-    } */
-
     const result = await Director.create(req.body);
 
     return res.status(201).json(result);
@@ -59,4 +49,12 @@ export const updateDirector = catchError(async (req, res) => {
     )
 
     return res.json(result[1][0])
+})
+
+
+//only to create a lot of directors
+export const bulkCreatedDirectors = catchError(async (req, res) => {
+    const result = await Director.bulkCreate(req.body)
+
+    return res.status(201).json(result)
 })

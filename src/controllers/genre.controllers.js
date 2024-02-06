@@ -18,12 +18,6 @@ export const getOneGenre = catchError(async (req, res) => {
 })
 
 export const createGenre = catchError(async (req, res) => {
-    /* const { name } = req.body;
-
-    const newBody = {
-        name
-    } */
-
     const result = await Genre.create(req.body)
     
     return res.status(201).json(result)
@@ -54,4 +48,12 @@ export const updateGenre = catchError(async (req, res) => {
     )
 
     return res.json(result[1][0])
+})
+
+
+//only to create a lot of genres
+export const bulkCreatedGenres = catchError(async (req, res) => {
+    const result = await Genre.bulkCreate(req.body)
+
+    return res.status(201).json(result)
 })
